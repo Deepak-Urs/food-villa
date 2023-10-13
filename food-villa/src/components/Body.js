@@ -1,26 +1,26 @@
 import { restaurantList } from "../constants"
+import RestaurantCard from "./RestaurantCard"
+import { useState } from "react"
 
 const Body = () => {
-
+    const [searchText, setSearchtext] = useState("")
     return (
         <div className="body" style={{ display: "flex", flexWrap: "wrap" }}>
+            <div className="search-container">
+                <input
+                    type="" 
+                    className="search-input" 
+                    placeholder="Search" 
+                    value={searchText} 
+                    onChange={(e) => setSearchtext(e.target.value)}/>
+                <button className="search-btn">Search</button>
+            </div>
             {restaurantList.map((res) => {
-                return <RestaurantCard {...res} key={res.id}/>
+                return <RestaurantCard {...res} key={res.id} />
             })}
         </div>
     )
 }
 
-const RestaurantCard = ({image, name, cuisines, rating}) => {
-    //const {image, name, cuisines, rating} = props.restaurant
-    return (
-        <div className="card">
-            <img alt="company-logo" src={image} />
-            <h2>{name}</h2>
-            <h3>{cuisines?.join(", ")}</h3>
-            <h4>{rating} stars</h4>
-        </div>
-    )
-}
 
 export default Body;
