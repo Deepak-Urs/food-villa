@@ -1,4 +1,3 @@
-import { restaurantList } from "../constants"
 import RestaurantCard from "./RestaurantCard"
 import { useState, useEffect } from "react"
 import { swiggy_api_URL } from "../constants"
@@ -31,7 +30,7 @@ const Body = () => {
 
     useEffect(() => {
         getData()
-    }, [allRestaurants])
+    }, [])
 
     // early return
     if(!allRestaurants) return null;

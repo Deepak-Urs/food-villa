@@ -1,6 +1,10 @@
 // React component definition-2
 // Component compoition done below
+import { useState } from 'react'
+
 const Header = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
     return (
         <div className="header">
             Hi <Title />
@@ -12,6 +16,11 @@ const Header = () => {
                     <li>Cart</li>
                 </ul>
             </div>
+            {
+                // NOTE: You can  run any piece of JS inside {} if JS => JS expression and not statements
+                (isLoggedIn ? (<button onClick={() => {console.log('change'); setIsLoggedIn(false)}}>LogOut</button>)
+                     : <button onClick={() => {console.log('change'); setIsLoggedIn(true)}}>LogIn</button>)
+            }
         </div>
     );
 };
