@@ -1,13 +1,14 @@
 // React component definition-2
 // Component compoition done below
 import { useState } from 'react'
+import Logo from '../assets/imgs/food-villa.png'
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     return (
         <div className="header">
-            Hi <Title />
+            <Title />
             <div className="nav-items">
                 <ul>
                     <li>Home</li>
@@ -27,7 +28,7 @@ const Header = () => {
 
 // React component definition-1: functional component
 const Title = () => (
-    <img src="fv.jpeg" alt="logo" className="logo" />
+    <img src={Logo} alt="logo" className="logo" />
 );
 
 export default Header;
