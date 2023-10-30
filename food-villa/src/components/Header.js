@@ -1,34 +1,42 @@
-// React component definition-2
-// Component compoition done below
-import { useState } from 'react'
-import Logo from '../assets/imgs/food-villa.png'
+import { LOGO_URL } from "../utils/constants";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [btnNameReact, setBtnNameReact] = useState("Login");
+  //console.log("Header render");
 
-    return (
-        <div className="header">
-            <Title />
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-            {
-                // NOTE: You can  run any piece of JS inside {} if JS => JS expression and not statements
-                (isLoggedIn ? (<button onClick={() => {console.log('change'); setIsLoggedIn(false)}}>LogOut</button>)
-                     : <button onClick={() => {console.log('change'); setIsLoggedIn(true)}}>LogIn</button>)
-            }
-        </div>
-    );
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img className="logo" src={LOGO_URL} />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>Cart</li>
+          <button
+            className="login"
+            onClick={() => {
+              btnNameReact === "Login"
+                ? setBtnNameReact("Logout")
+                : setBtnNameReact("Login");
+            }}
+          >
+            {btnNameReact}
+          </button>
+        </ul>
+      </div>
+    </div>
+  );
 };
-
-// React component definition-1: functional component
-const Title = () => (
-    <img src={Logo} alt="logo" className="logo" />
-);
 
 export default Header;
