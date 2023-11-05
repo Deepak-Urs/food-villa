@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const ProfileFunctional = (props) => {
     const [count, setCount] = useState(0)
-    const [count2] = useState(0)
+    const [count2,setCount2] = useState(0)
     return (
         <div>
             <h1>Profile Functional component</h1>
